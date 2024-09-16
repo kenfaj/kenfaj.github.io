@@ -1,0 +1,323 @@
+*, ::before, ::after{
+    box-sizing:border-box;
+  }
+  html{
+    display:grid;
+    grid-template-columns:1fr 5fr 1fr;
+  }
+  body{
+    grid-column:2;
+    margin:0;
+    background:linear-gradient(
+      60deg,
+      darkcyan -150%,
+      white 50%,
+      indigo 250%
+    );
+  }
+  :root{
+    --primarycolor:#7C93C3;
+    --secondarycolor:#55679C;
+    --accent:#1E2A5E;
+    --fontcolor:black;
+    
+  }
+  #welcome-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    height: 90vh;   
+    filter:blur(0.5px);    
+    font-size:1.2rem;
+    font-family:'Courier New', monospace;
+    padding-top:-20vh;
+    padding-bottom:9vh;
+  
+    animation:fade-out linear;
+    animation-timeline:view(block 10% 100%);
+  }
+  
+  #welcome-section h1 {
+    text-align: center; 
+    font-family:caveat;
+  }
+  .freaky{
+    display:block;
+    font-family:caveat;
+    font-size:11rem;
+    margin:-5rem;
+  }
+  
+  #projects{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-auto-flow:row;
+  }
+  .project-tile{
+    position:relative;
+    overflow:hidden;
+    border-radius:3rem;
+    aspect-ratio:1;
+    margin:0.5rem;
+    max-width:45rem;
+    min-width:20rem;
+    justify-items:center;
+    animation:fade-in-out linear;
+    animation-timeline:view();
+  }
+  #projects h1{
+    grid-column:1/-1;
+    font-size:5rem;
+    font-family:caveat;
+    text-align:center;
+    animation:fade-in-out linear;
+    animation-timeline:view();
+  }
+  .project-tile img{
+    position:relative;
+    object-fit:cover;
+    height:100%;
+    width:100%;
+  }
+  .project-tile:hover img{
+    filter: brightness(60%) blur(5px);
+    transform:scale(1.1);
+    transition:all 0.4s ease-in-out;
+  }
+  .project-tile:hover .caption{
+    opacity:1;
+  }
+  .caption{
+    position:absolute;
+    padding:80% 50% 10% 10%;
+    z-index:100;
+    font-size:2rem;
+    font-family:monospace;
+    font-weight:bold;
+    color:white;
+    opacity:0;
+    transition:all 0.4s ease-in-out;
+  }
+  
+  
+  
+  
+  
+  footer{
+    padding:1rem;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:repeat(4,1fr);
+    height:40vh;
+    margin:20vh 0;
+  }
+  footer img{
+    position:relative;
+    object-fit:cover;
+    height:100%;
+    width:100%;
+  }
+  footer h1{
+    font:8rem monospace;
+    letter-spacing:-6px;
+  }
+  .links{
+    grid-column:3/-1;
+    display:flex;
+    align-items:flex-end;
+  }
+  .links ul{
+    list-style:none;
+    padding-left:0;
+  }
+  #profile-link{
+    font:1.5rem monospace;
+    color:var(--fontcolor);
+    text-decoration:underline;
+    letter-spacing:5px;
+  }
+  .big-link{
+    grid-column:1/-1;
+  }
+  .big-link p{
+    font:italic 1.5rem monospace;
+    margin-bottom:-110px;
+  }
+  .big-link a{
+    text-decoration:none;
+    position: relative;
+    color:var(--fontcolor);
+    width:100%;
+  }
+  .big-link a:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 12px;
+    transition: all 1s ease;
+  }
+  .big-link h1 a:before{
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+  }
+  .big-link h1 a:hover:before{
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  
+  
+  
+  
+  @media only screen and (max-width:1200px){
+    #projects{
+      grid-template-columns:repeat(2, 1fr);
+    }
+    #projects h1{
+      font-size:4rem;
+    }
+    footer h1{
+      font:5rem monospace;
+      letter-spacing:-6px;
+    }
+    .big-link p{
+      font-size:1rem;
+      margin-bottom:-60px;
+    }
+    #profile-link{
+      font:1.3rem monospace;
+    }
+  }
+  @media only screen and (max-width:800px){
+    footer h1{
+      font:4rem monospace;
+      letter-spacing:-6px;
+    }
+    #projects h1{
+      font-size:3rem;
+    }
+    #profile-link{
+      font:1rem monospace;
+    }
+    .big-link p{
+      font-size:0.9rem;
+      margin-bottom:-50px;
+    }
+    html{
+      grid-template-columns:1fr;
+    }
+    body{
+      grid-column:1;
+      margin:0 2rem;
+    } 
+    #projects{
+      grid-template-columns:repeat(1, 1fr);
+    }
+    #welcome-section{
+      font-size:0.6rem;
+    }
+    .freaky{
+    font-size:6rem;
+    margin:-3rem;
+    }
+  }
+  #navbar{
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .nav-links{
+    display: flex;
+    align-items: center;
+    padding: 15px 15px;
+  }
+  .nav-links li{
+    list-style: none;
+    margin: 0 12px;
+  }
+  .nav-links li a{
+    position: relative;
+    color:var(--fontcolor);
+    font-size: 20px;
+    font-weight: 500;
+    padding: 6px 0;
+    text-decoration: none;
+  }
+  .nav-links li a:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 12px;
+    transition: all 0.4s ease;
+  }
+  .nav-links li.an a:before{
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+  }
+  .nav-links li.an a:hover:before{
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .navbar-container {
+      position: sticky;
+      top: 0;  
+      z-index: 1000; 
+      margin-right:2rem;
+      animation:fade-out;
+      animation-timeline:view(block 100vh 100%);
+  }
+  @keyframes fade-in{
+    from{
+      scale:.7;
+      opacity:0;
+    }
+    to{
+      scale:1;
+      opacity:1;
+    }
+  }
+  @keyframes fade-out{
+    from{
+      scale:1;
+      opacity:1;
+    }
+    50%{
+      scale:.7;
+      opacity:0;
+    }
+    to{
+      scale:.7;
+      opacity:0;
+    }
+  }
+  @keyframes fade-in-out{
+    from{
+      scale:.6;
+      opacity:0;
+    }
+    45%{
+      scale:1;
+      opacity:1;
+    }
+    55%{
+      scale:1;
+      opacity:1;
+    }
+    to{
+      scale:.6;
+      opacity:0;
+    }
+  }
