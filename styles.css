@@ -64,6 +64,7 @@
     justify-items:center;
     animation:fade-in-out linear;
     animation-timeline:view();
+    box-shadow:0px 0px 30px black;
   }
   #projects h1{
     grid-column:1/-1;
@@ -110,21 +111,31 @@
     grid-template-rows:repeat(4,1fr);
     height:40vh;
     margin:20vh 0;
+    background: linear-gradient(
+      45deg,
+      var(--primarycolor),
+      var(--secondarycolor),
+      white 200%
+    );
+    border-radius:20px;
   }
   footer img{
     position:relative;
     object-fit:cover;
     height:100%;
     width:100%;
+    border-radius:12px;
   }
   footer h1{
     font:8rem monospace;
     letter-spacing:-6px;
+    
   }
   .links{
-    grid-column:3/-1;
+    grid-column:2/-1;
     display:flex;
     align-items:flex-end;
+    margin-left:1em;
   }
   .links ul{
     list-style:none;
