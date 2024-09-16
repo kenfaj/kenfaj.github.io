@@ -79,6 +79,8 @@
     object-fit:cover;
     height:100%;
     width:100%;
+    filter: brightness(100%) blur(0px);
+    transition: all 0.4s ease;
   }
   .project-tile:hover img{
     filter: brightness(60%) blur(5px);
